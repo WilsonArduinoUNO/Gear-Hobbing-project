@@ -1,0 +1,69 @@
+sketchtp aaling a float number or integer based on right alignment colum
+Can be nnidifyed to take one fild at aa time and orint it with its "pad" as lined up column.
+8/5/2022
+
+int Toggle_Header = 0;
+int k;
+int len = 5;
+float TempData = 1.427245;
+float TempData1 = 1.267656398;
+float TempData2 = 35800.86439736;
+float TempData3 = 357435800.86439736;
+int i = 1;
+float Ratio = 2.97777;
+//   ******* FUNCTIONS DECLARATION FOLLOWS ************
+void Print_Column_Pad() {
+  for (i = 1; i < len; i++) {
+    Serial.print(" ");
+  }
+  Serial.print(" ");
+  Serial.print(TempData, 5);
+  Serial.print("  len = ");
+  Serial.print(len);
+  Serial.print(" len = ");
+  Serial.println(len);
+
+
+}
+
+void Find_Column_Pad() {
+  if (TempData  > 0 && TempData < 10) len = 8;
+  if (TempData >= 10 && TempData < 100) len = 7;
+  if (TempData >= 100 && TempData < 1000) len = 6;
+  if (TempData >= 1000 && TempData < 10000) len = 5;
+  if (TempData >= 10000 && TempData < 100000) len = 4;
+  if (TempData >= 100000 && TempData < 1000000) len = 3;
+  if (TempData >= 1000000 && TempData < 10000000) len = 2;
+  if (TempData >= 10000000 && TempData < 100000000) len = 1;
+  // Serial.print(" ---Find-> TempData = ");
+  /*  Serial.print(TempData);
+    Serial.print("  len = ");
+    Serial.print(len);
+    Serial.println(" End of Find_Column");
+  */
+}
+//   ******* SETUP SECTION FOLLOWS ************
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  Serial.println("*******************************************************************");
+  Serial.println("*---------0----  setup FILE NAME: sketch_aug05ab.ino -----0-----***");
+  Serial.println("*****  By Wilson Gonzalez  Status: Ver.1   08/05/2022**************");
+
+  Serial.println("*Can be utilized to print columns of int or float numbers keeping *");
+  Serial.println("the numbers with the decimal point aligned vertical with a front  *");
+  Serial.println(" pad of spaces____________________________________________________*");
+  Serial.println("*******************************************************************");
+  Serial.println("  ");
+}
+void loop() {
+
+  do {
+    Find_Column_Pad();
+    Print_Column_Pad();
+    TempData = TempData * Ratio;
+    //   delay(100);
+  } while (TempData < 100000000);
+
+  delay(30000);
+}
