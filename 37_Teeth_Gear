@@ -1,6 +1,6 @@
-sketchtp aaling a float number or integer based on right alignment colum
-Can be nnidifyed to take one fild at aa time and orint it with its "pad" as lined up column.
-8/5/2022
+//sketchtp aaling a float number or integer based on right alignment colum
+//Can be nnidifyed to take one fild at aa time and orint it with its "pad" as lined up column.
+//8/5/2022
 
 int Toggle_Header = 0;
 int k;
